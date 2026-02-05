@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div id="container">
+    <main>
+        <h2>Feedback</h2>
+        <h3>Love something? Hate something? Let us know!</h3>
+
+        <p>Note: Fields marked with an asterisk (*) are mandatory</p>
+
+        <form id="feedbackForm" novalidate>
+
+            <!-- Title -->
+            <label>Title*:</label>
+            <input type="radio" name="title" value="Miss"> Miss
+            <input type="radio" name="title" value="Mr"> Mr.
+            <input type="radio" name="title" value="Mrs"> Mrs.
+            <br>
+            <span class="error" id="titleError">Please select a title</span>
+            <br><br>
+
+            <!-- First Name -->
+            <label for="firstName">First Name*:</label>
+            <input type="text" id="firstName">
+            <br>
+            <span class="error" id="firstNameError"></span>
+            <br><br>
+
+            <!-- Last Name -->
+            <label for="lastName">Last Name*:</label>
+            <input type="text" id="lastName">
+            <br>
+            <span class="error" id="lastNameError"></span>
+            <br><br>
+
+            <!-- Email -->
+            <label for="emailId">Email*:</label>
+            <input type="text" id="emailId" placeholder="name@northeastern.edu">
+            <br>
+            <span class="error" id="emailIdError"></span>
+            <br><br>
+
+            <!-- Phone -->
+            <label for="phoneNumber">Phone Number*:</label>
+            <input type="text" id="phoneNumber" placeholder="(123) 456-7890">
+            <br>
+            <span class="error" id="phoneNumberError"></span>
+            <br><br>
+
+            <!-- Address 1 -->
+            <label for="streetAddress1">Street Address 1*:</label>
+            <input type="text" id="streetAddress1">
+            <br>
+            <span class="error" id="streetAddress1Error"></span>
+            <br><br>
+
+            <!-- Address 2 -->
+            <label for="streetAddress2">Street Address 2:</label>
+            <input type="text" id="streetAddress2" maxlength="50">
+            <br>
+            <span class="character-counter" id="address2Counter">
+                0/50 characters used
+            </span>
+            <br><br>
+
+            <!-- Zip -->
+            <label for="zipcode">Zip Code*:</label>
+            <input type="text" id="zipcode" maxlength="5">
+            <br>
+            <span class="error" id="zipcodeError"></span>
+            <br><br>
+
+            <!-- Drinks -->
+            <label for="drinks">Drinks*:</label>
+            <select id="drinks">
+                <option value="">-- Select a drink --</option>
+                <option value="Hot Black Tea - Keemun">Hot Black Tea - Keemun</option>
+                <option value="Iced Green Tea">Iced Green Tea</option>
+                <option value="Coffee">Coffee</option>
+                <option value="Lemonade">Lemonade</option>
+                <option value="Orange Juice">Orange Juice</option>
+            </select>
+            <br>
+            <span class="error" id="drinksError"></span>
+            <br><br>
+
+            <!-- Dynamic Checkbox Area -->
+            <div id="checkboxArea"></div>
+
+            <!-- Comments -->
+            <label for="comments">Comments*:</label>
+            <textarea id="comments" rows="5" cols="25"></textarea>
+            <br>
+            <span class="error" id="commentsError"></span>
+            <br><br>
+
+            <!-- Buttons -->
+            <input type="submit" id="submitBtn" disabled>
+            <input type="reset" id="resetBtn">
+            <br><br>
+        </form>
+
+        <!-- Results -->
+        <div id="resultsSection" style="display:none;">
+            <h2>Submitted Data</h2>
+            <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Street Address 1</th>
+                        <th>Street Address 2</th>
+                        <th>Zip Code</th>
+                        <th>Drink</th>
+                        <th>Extra Info</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody"></tbody>
+            </table>
+        </div>
+
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
