@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: green;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin: 10px 0 0 0;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+section h2 {
+    color: green;
+}
+
+article {
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+table th {
+    background-color: green;
+    color: white;
+    padding: 10px;
+}
+
+table td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+figure {
+    text-align: center;
+    margin: 20px 0;
+}
+
+figure img {
+    border: 1px solid black;
+    max-width: 100%;
+}
+
+figcaption {
+    font-style: italic;
+    color: gray;
+    margin-top: 5px;
+}
+
+form {
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+input {
+    padding: 5px;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
+
+details {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: lightgray;
+    border-radius: 5px;
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+video, audio {
+    margin: 10px 0;
+}
+
+aside {
+    margin: 20px;
+    padding: 20px;
+    background-color: lightyellow;
+    border: 1px solid black;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer h3 {
+    color: lightgreen;
+}
+
+footer a {
+    color: lightgreen;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
