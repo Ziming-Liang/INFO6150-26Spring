@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1 id="welcomeMsg"></h1>
+      <button id="logoutBtn">Logout</button>
+    </div>
+
+    <div class="form-group">
+      <label for="num1">Number 1</label>
+      <input type="text" id="num1"/>
+      <span class="error" id="num1Error"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="num2">Number 2</label>
+      <input type="text" id="num2"/>
+      <span class="error" id="num2Error"></span>
+    </div>
+
+    <div class="btn-row">
+      <button class="op-btn" data-op="add">Add</button>
+      <button class="op-btn" data-op="subtract">Subtract</button>
+      <button class="op-btn" data-op="multiply">Multiply</button>
+      <button class="op-btn" data-op="divide">Divide</button>
+    </div>
+
+    <div class="form-group">
+      <label for="result">Result</label>
+      <input type="text" id="result" readonly disabled/>
+    </div>
+
+    <span class="error" id="calcError"></span>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    // Auth check
+    const raw = sessionStorage.getItem("session") || localStorage.getItem("session");
+    if (!raw) { window.location.href = "login.html"; }
+
+    const session = JSON.parse(raw);
+    $("#welcomeMsg").text("Welcome, " + session.username + "!");
+
+    // Single arrow function for all operations (required)
+    const calculate = (num1, num2, operation) => {
+      switch (operation) {
+        case "add":      return num1 + num2;
+        case "subtract": return num1 - num2;
+        case "multiply": return num1 * num2;
+        case "divide":
+          if (num2 === 0) throw new Error("Cannot divide by zero");
+          return num1 / num2;
+        default:
+          throw new Error("Unknown operation");
+      }
+    };
+
+    const validateNum = (selector, errorSelector) => {
+      const val = $(selector).val().trim();
+      if (val === "" || isNaN(val)) {
+        $(errorSelector).text("Please enter a valid number");
+        return false;
+      }
+      $(errorSelector).text("");
+      return true;
+    };
+
+    $("#num1").on("focus", () => $("#num1Error").text(""));
+    $("#num2").on("focus", () => $("#num2Error").text(""));
+
+    $(".op-btn").on("click", function () {
+      const op  = $(this).data("op");
+      const ok1 = validateNum("#num1", "#num1Error");
+      const ok2 = validateNum("#num2", "#num2Error");
+      if (!ok1 || !ok2) return;
+
+      const n1 = parseFloat($("#num1").val().trim());
+      const n2 = parseFloat($("#num2").val().trim());
+
+      try {
+        const res = calculate(n1, n2, op);
+        // jQuery chaining
+        $("#result").val(parseFloat(res.toFixed(10))).css("color", "green");
+        $("#calcError").text("");
+      } catch (err) {
+        $("#calcError").text(err.message);
+        $("#result").val("");
+      }
+    });
+
+    $("#logoutBtn").on("click", () => {
+      sessionStorage.removeItem("session");
+      localStorage.removeItem("session");
+      $(".container").fadeOut(400, () => { window.location.href = "login.html"; });
+    });
+  </script>
+</body>
+</html>
