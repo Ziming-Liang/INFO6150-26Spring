@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Event Stopwatch</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Event Stopwatch</h1>
+
+    <div id="timerDisplay">00:00:00</div>
+
+    <div class="form-group">
+      <label for="eventDate">Date</label>
+      <input type="date" id="eventDate"/>
+      <span class="error" id="dateError"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="eventName">Event Name</label>
+      <input type="text" id="eventName" placeholder="What are you timing?"/>
+      <span class="error" id="nameError"></span>
+    </div>
+
+    <div class="btn-row">
+      <button id="startBtn">Start</button>
+      <button id="pauseBtn" disabled>Pause</button>
+      <button id="stopBtn"  disabled>Stop &amp; Save</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+
+    <div id="notification" class="notification" style="display:none;"></div>
+
+    <div class="stats">
+      <span>Total Sessions: <strong id="totalSessions">0</strong></span>
+      <span>Total Time: <strong id="totalTime">00:00:00</strong></span>
+    </div>
+
+    <div class="filter-row">
+      <label for="filterDate">Filter by date:</label>
+      <input type="date" id="filterDate"/>
+      <button id="clearFilter">Clear</button>
+    </div>
+
+    <div class="history-section">
+      <h2>Session History</h2>
+      <div id="historyList"></div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
