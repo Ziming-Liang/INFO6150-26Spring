@@ -17,7 +17,6 @@ var socialMedia = {
 
 var t = new Title("CONNECT WITH ME!");
 
-// ========== 作业功能实现 ==========
 
 // 页面加载时初始化
 window.onload = function() {
