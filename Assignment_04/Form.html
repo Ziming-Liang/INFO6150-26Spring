@@ -9,6 +9,9 @@
 <body>
 <div id="container">
     <main>
+        <!-- AI Assistant Button -->
+        <button type="button" id="aiAssistantBtn">AI Assistant</button>
+        
         <h2>Feedback</h2>
         <h3>Love something? Hate something? Let us know!</h3>
 
@@ -55,7 +58,11 @@
 
             <!-- Address 1 -->
             <label for="streetAddress1">Street Address 1*:</label>
-            <input type="text" id="streetAddress1">
+            <input type="text" id="streetAddress1" maxlength="50">
+            <br>
+            <span class="character-counter" id="address1Counter">
+                0/50 characters used
+            </span>
             <br>
             <span class="error" id="streetAddress1Error"></span>
             <br><br>
@@ -95,16 +102,35 @@
 
             <!-- Comments -->
             <label for="comments">Comments*:</label>
-            <textarea id="comments" rows="5" cols="25"></textarea>
+            <textarea id="comments" rows="5" cols="25" maxlength="50"></textarea>
+            <br>
+            <span class="character-counter" id="commentsCounter">
+                0/50 characters used
+            </span>
             <br>
             <span class="error" id="commentsError"></span>
             <br><br>
 
-            <!-- Buttons -->
+            <!-- Submit and Reset Buttons -->
             <input type="submit" id="submitBtn" disabled>
             <input type="reset" id="resetBtn">
             <br><br>
         </form>
+
+        <!-- AI Chatbot Window -->
+        <div id="chatWindow" class="chat-window">
+            <div class="chat-header">
+                <h3>AI Assistant</h3>
+                <span class="chat-close">&times;</span>
+            </div>
+            <div class="chat-body">
+                <div id="chatMessages" class="chat-messages"></div>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Type your question here...">
+                <button id="chatSendBtn">Send</button>
+            </div>
+        </div>
 
         <!-- Results -->
         <div id="resultsSection" style="display:none;">
