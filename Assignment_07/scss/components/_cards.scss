@@ -1,0 +1,28 @@
+// extra SASS
+$card-types: (strength, cardio, yoga);
+$card-colors: (#e63946, #2d6a4f, #457b9d);
+
+.feature-card {
+  @extend %card-base;
+  padding: $spacing-lg;
+  text-align: center;
+
+  h3 {
+    font-family: $font-heading;
+    font-size: rem(20px);
+    margin-bottom: $spacing-sm;
+    color: $color-dark;
+  }
+
+  p {
+    color: $color-gray;
+    font-size: rem(15px);
+  }
+}
+
+// Interpolation + @each create active class type color
+@for $i from 1 through length($card-types) {
+  .card-#{nth($card-types, $i)} {
+    border-top: 4px solid nth($card-colors, $i);
+  }
+}
