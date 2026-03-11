@@ -1,0 +1,73 @@
+.hero {
+  // CSS Custom Properties
+  --hero-bg: #{$color-dark};
+  --hero-height: 90vh;
+
+  background: var(--hero-bg);
+  height: var(--hero-height);
+  position: relative;
+
+  // Grid Layout #1
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 0 $spacing-xl;
+
+  &__content {
+    h1 {
+      font-family: $font-heading;
+      font-size: rem(56px);
+      color: white;
+      line-height: 1.2;
+      margin-bottom: $spacing-md;
+
+      span {
+        color: $color-secondary;
+      }
+    }
+
+    p {
+      color: tint($color-gray, 30%);
+      font-size: rem(18px);
+      margin-bottom: $spacing-lg;
+    }
+  }
+
+  &__image {
+    @include flex-center;
+
+    img {
+      width: 80%;
+      border-radius: $border-radius * 2;
+    }
+  }
+}
+
+// Page Hero (classes.html)
+.page-hero {
+  --hero-bg: #{$color-dark};
+
+  background: var(--hero-bg);
+  padding: $spacing-xl;
+  @include flex-center;
+
+  &__content {
+    text-align: center;
+
+    h1 {
+      font-family: $font-heading;
+      font-size: rem(48px);
+      color: white;
+      margin-bottom: $spacing-md;
+
+      span {
+        color: $color-secondary;
+      }
+    }
+
+    p {
+      color: $color-gray;
+      font-size: rem(18px);
+    }
+  }
+}
