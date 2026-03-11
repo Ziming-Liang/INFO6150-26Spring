@@ -1,0 +1,10 @@
+@use 'variables' as vars;
+// px to rem conversion
+@function rem($px) {
+  @return $px / 16px * 1rem;
+}
+
+// lighten color by percentage
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}

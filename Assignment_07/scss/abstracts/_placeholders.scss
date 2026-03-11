@@ -1,0 +1,30 @@
+// card base style
+%card-base {
+  background: white;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+}
+
+// section padding
+%section-padding {
+  padding: $spacing-xl $spacing-lg;
+}
+
+// button base
+%btn-base {
+  display: inline-block;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius;
+  font-weight: 600;
+  cursor: pointer;
+  transition: $transition;
+  border: none;
+  text-decoration: none;
+}
