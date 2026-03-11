@@ -1,0 +1,43 @@
+// Interpolation
+$nav-items: home, classes, contact;
+
+header {
+  background: $color-dark;
+  padding: $spacing-md $spacing-lg;
+
+  // Flexbox Layout 1
+  nav {
+    @include flex-center;
+    justify-content: space-between;
+
+    .logo {
+      font-family: $font-heading;
+      font-size: rem(24px);
+      color: $color-secondary;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      @include flex-center;
+      gap: $spacing-lg;
+
+      // Nesting
+      a {
+        color: white;
+        font-size: rem(15px);
+        transition: $transition;
+
+        &:hover {
+          color: $color-secondary;
+        }
+      }
+    }
+  }
+}
+
+// Interpolation
+@each $item in $nav-items {
+  .nav-#{$item} {
+    font-weight: 500;
+  }
+}
