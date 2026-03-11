@@ -1,0 +1,30 @@
+footer {
+  background: $color-dark;
+  color: white;
+  padding: $spacing-lg;
+
+  // Flexbox Layout 2
+  .footer-inner {
+    @include flex-center;
+    justify-content: space-between;
+
+    p {
+      color: $color-gray;
+      font-size: rem(14px);
+    }
+
+    .footer-links {
+      @include flex-center;
+      gap: $spacing-md;
+
+      a {
+        color: $color-gray;
+        transition: $transition;
+
+        &:hover {
+          color: $color-secondary;
+        }
+      }
+    }
+  }
+}
