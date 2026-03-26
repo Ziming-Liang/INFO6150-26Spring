@@ -76,6 +76,37 @@ router.post('/create', async (req, res) => {
 });
 
 
+// 登录
+router.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // 查找用户
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(401).json({ error: "Invalid credentials." });
+    }
+
+    // 验证密码
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ error: "Invalid credentials." });
+    }
+
+    res.status(200).json({ 
+      message: "Login successful.",
+      user: {
+        fullName: user.fullName,
+        email: user.email
+      }
+    });
+
+  } catch (error) {
+    res.status(400).json({ error: "Login failed." });
+  }
+});
+
+
 //更新用户
 router.put('/edit', async (req, res) => {
   try {
